@@ -117,6 +117,12 @@
   .speed p{font-size:14.5px;line-height:1.5;margin-bottom:10px;color:#E6EAF7}
   .speed p:last-child{margin-bottom:0}
   @media (max-width:640px){.speed{grid-template-columns:1fr;gap:8px}}
+  .gapstats{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:14px}
+  .gapstats>div{border:1px solid var(--card-border);padding:12px 14px}
+  .gapstats .v{font-family:var(--mono);font-weight:700;font-size:22px}
+  .gapstats .t{font-size:13px;color:#3B4252;margin-top:3px}
+  #stair svg{display:block;width:100%;height:auto}
+  @media (max-width:640px){.gapstats{grid-template-columns:1fr}}
   .why{display:grid;grid-template-columns:repeat(2,1fr);gap:12px;margin-top:12px}
   .why div{border:1px solid var(--card-border);padding:16px}
   .why h3{font-family:var(--head);font-size:15px;margin-bottom:6px}
@@ -172,6 +178,22 @@
       <div class="months" id="flow"></div>
       <div class="labels" id="flowlabels"></div>
       <p class="cap">With full funding from March through May, leads climbed every month, reaching 184 in May. They dropped to 14 during the June pause, came back to 110 in July once payment resumed, and have arrived in short bursts on the reduced plan since August 20.</p>
+    </div>
+    <div class="panel" style="margin-top:12px">
+      <div class="hd" style="font-weight:600;font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:#3B4252;margin-bottom:6px">How the current plan's 90 leads arrived, Aug 20 – Oct 7</div>
+      <div class="legend" style="margin-bottom:6px">
+        <span><i class="sw" style="background:var(--navy)"></i>Actual leads, running total</span>
+        <span><i class="sw" style="background:repeating-linear-gradient(90deg,var(--green) 0 4px,transparent 4px 7px)"></i>Same 90 leads at a steady pace</span>
+        <span><i class="sw" style="background:#F2F3F6;box-shadow:inset 0 0 0 1px #DDE3F2"></i>Days with no new leads</span>
+      </div>
+      <div id="stair" role="img" aria-label="Running total of leads since August 20. Leads arrived in three bursts with gaps of 5, 14, 10, and 6 days, compared with a steady line reaching the same 90 leads."></div>
+      <div class="gapstats">
+        <div><div class="v">14 of 49</div><div class="t">days brought a new lead</div></div>
+        <div><div class="v">56%</div><div class="t">of all leads arrived on just three days</div></div>
+        <div><div class="v">14 days</div><div class="t">longest stretch with no leads, Aug 31 – Sep 13</div></div>
+      </div>
+      <p class="cap">On August 28 alone, 25 leads came in at once, more than a sales team can call back quickly. Then nothing for two weeks. The longest gap fell in what is historically the busiest stretch of hurricane season, when homeowners are most likely to be looking for a roofer.</p>
+      <div class="callout" style="margin-top:12px"><b>What the 35 empty days could have produced: roughly $95K to $250K in roofing work.</b> May, the last fully funded month, averaged about 6 leads a day. Across 35 days without a lead, that pace works out to about 210 leads. At Roofing Pros' own rates (2.6% signed, 7.0% including claims) and $17,405 per job, that's the range above. This is an estimate, not a forecast.</div>
     </div>
     <div class="speed">
       <div class="big">7×</div>
@@ -275,6 +297,35 @@
 
 </div>
 
+<script>
+  (function(){
+    // daily lead counts, Aug 20 (day 0) to Oct 7 (day 48)
+    const hits={0:1,6:10,7:7,8:25,9:1,10:1,25:1,26:10,27:15,28:8,29:1,40:1,41:6,42:3};
+    const N=49, total=90, W=760, H=260, L=40, R=10, T=14, B=34;
+    const x=d=>L+(W-L-R)*d/(N-1), y=v=>T+(H-T-B)*(1-v/total);
+    const start=new Date(2026,7,20);
+    let cum=0, pts=[], gaps=[], g=null;
+    for(let d=0;d<N;d++){
+      const c=hits[d]||0;
+      pts.push([x(d),y(cum)]); cum+=c; pts.push([x(d),y(cum)]);
+      if(c===0){ if(g===null) g=d; } else if(g!==null){ gaps.push([g,d-1]); g=null; }
+    }
+    if(g!==null) gaps.push([g,N-1]);
+    let svg='<svg viewBox="0 0 '+W+' '+H+'" xmlns="http://www.w3.org/2000/svg" font-family="IBM Plex Mono, Menlo, monospace">';
+    gaps.forEach(([a,b])=>{
+      const x0=x(a)-((W-L-R)/(N-1))/2, x1=x(b)+((W-L-R)/(N-1))/2, len=b-a+1;
+      svg+='<rect x="'+x0+'" y="'+T+'" width="'+(x1-x0)+'" height="'+(H-T-B)+'" fill="#F2F3F6"/>';
+      if(len>=5) svg+='<text x="'+((x0+x1)/2)+'" y="'+(a>=10?(H-B-8):(T+14))+'" text-anchor="middle" font-size="11" font-weight="600" fill="#5B6275">'+len+' days</text>';
+    });
+    [0,30,60,90].forEach(v=>{svg+='<line x1="'+L+'" x2="'+(W-R)+'" y1="'+y(v)+'" y2="'+y(v)+'" stroke="#DDE3F2"/><text x="'+(L-6)+'" y="'+(y(v)+4)+'" text-anchor="end" font-size="11" fill="#5B6275">'+v+'</text>';});
+    svg+='<line x1="'+x(0)+'" y1="'+y(0)+'" x2="'+x(N-1)+'" y2="'+y(total)+'" stroke="#4C9A0F" stroke-width="2" stroke-dasharray="6 5"/>';
+    svg+='<polyline points="'+pts.map(p=>p.join(",")).join(" ")+'" fill="none" stroke="#0C2696" stroke-width="3" stroke-linejoin="round"/>';
+    [[0,"Aug 20"],[12,"Sep 1"],[26,"Sep 15"],[42,"Oct 1"],[48,"Oct 7"]].forEach(([d,t])=>{svg+='<text x="'+x(d)+'" y="'+(H-12)+'" text-anchor="'+(d===48?"end":"middle")+'" font-size="11" fill="#5B6275">'+t+'</text>';});
+    svg+='<text x="'+(x(8)-8)+'" y="'+y(34)+'" text-anchor="end" font-size="11" font-weight="700" fill="#0C2696">25 leads on Aug 28</text>';
+    svg+='</svg>';
+    document.getElementById("stair").innerHTML=svg;
+  })();
+</script>
 <script>
   const flow=[
     {m:"Mar",leads:56,f:"full",t:"Full"},{m:"Apr",leads:124,f:"full",t:"Full"},{m:"May",leads:184,f:"full",t:"Full"},
