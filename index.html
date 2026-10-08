@@ -125,6 +125,11 @@
   .pilot{border-top:1px solid currentColor;padding-top:12px}
   .rows .r .st{font-size:clamp(11px,.9vw,14px);font-weight:600;letter-spacing:.06em;text-transform:uppercase;text-align:right;white-space:nowrap}
   .rows .r .k.long{text-transform:none;font-weight:600;letter-spacing:0}
+  .hbars{display:flex;flex-direction:column;gap:10px}
+  .hb{display:grid;grid-template-columns:clamp(120px,11vw,190px) 1fr clamp(50px,5vw,80px);align-items:center;gap:12px}
+  .hn{font-size:clamp(13px,1.05vw,16px);font-weight:600}
+  .hbar{height:clamp(14px,1.6vh,20px);background:var(--g1)} .hbar i{display:block;height:100%;background:var(--ink)}
+  .hv{font-weight:700;font-size:clamp(15px,1.3vw,22px);text-align:right}
   @media (max-width:820px){
     html{scroll-snap-type:none}
     .slide{min-height:auto;padding-bottom:56px}
@@ -395,14 +400,42 @@
   </div>
 </section>
 
-<!-- 12 LOCAL SEARCH -->
-<section class="slide" id="s13">
+<!-- 11b COMPETITION -->
+<section class="slide" id="s11b">
   <div class="topbar"><b>Juice House</b><span>Roofing Pros USA</span><span>Account Review</span><span>2026</span></div>
   <div class="side"><b>Juice House</b>&nbsp; A Global Creative + Production Agency</div>
   <div class="pg">12</div>
   <div class="split">
     <div class="left">
-      <span class="lab">005 / Local search</span>
+      <span class="lab">005 / Competition</span>
+      <h2 class="lead" style="font-size:clamp(28px,3.2vw,54px);line-height:1">You're competing with a company that shares your name.</h2>
+      <div class="copy"><p>The other Roofing Pros USA, based in Ocala, owns roofingprosusa.com and ranks first on Google for "Roofing Pros USA" and "Roofing Pros." It lists Orlando, Tampa, Daytona Beach, and Spring Hill among its service areas.</p>
+      <p>Your own notes show the confusion: homeowners dealing with two branches, adjusters getting calls from the other office, and leads routed to the wrong team. Our SEO plan separates the two brands so searches for your name come to you.</p></div>
+    </div>
+    <div class="right" style="justify-content:center">
+      <div class="stats" style="grid-template-columns:1fr 1fr">
+        <div class="stat"><div class="caps">Lost to another roofer or price</div><div class="n blue">462</div><div class="t">Lost leads since January 2025 whose notes name another roofer or a better price</div></div>
+        <div class="stat"><div class="caps">Top competitor ad budget</div><div class="n blue">$131K</div><div class="t">Estimated monthly Google Ads spend by a roofer bidding on the same searches</div></div>
+      </div>
+      <span class="caps" style="margin:6px 0 10px">Estimated monthly Google Ads budget, roofers bidding on the same searches</span>
+      <div class="hbars">
+        <div class="hb"><span class="hn">Skymark Roofing</span><span class="hbar"><i style="width:100%"></i></span><span class="hv">$131K</span></div>
+        <div class="hb"><span class="hn">4th Gen Roofing</span><span class="hbar"><i style="width:74.8%"></i></span><span class="hv">$98K</span></div>
+        <div class="hb"><span class="hn">Florida Roof Bros</span><span class="hbar"><i style="width:23.3%"></i></span><span class="hv">$31K</span></div>
+        <div class="hb"><span class="hn">Roofing Advantage</span><span class="hbar"><i style="width:21.2%"></i></span><span class="hv">$28K</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 12 LOCAL SEARCH -->
+<section class="slide" id="s13">
+  <div class="topbar"><b>Juice House</b><span>Roofing Pros USA</span><span>Account Review</span><span>2026</span></div>
+  <div class="side"><b>Juice House</b>&nbsp; A Global Creative + Production Agency</div>
+  <div class="pg">13</div>
+  <div class="split">
+    <div class="left">
+      <span class="lab">006 / Local search</span>
       <h2 class="lead" style="font-size:clamp(30px,3.6vw,60px);line-height:1">One clean Google profile is the foundation for local search.</h2>
       <div class="copy"><p>Google Maps and Local Services Ads are where homeowners searching for a roofer near them find a contractor. Once it's consolidated, one verified profile with <span class="blue">760 reviews</span> works for you every day, including the days paid campaigns are quiet.</p><p>Consolidating the profile comes first, because it decides where every new review lands. Reviews, rating, and local ranking all build on it.</p></div>
     </div>
@@ -423,7 +456,7 @@
 <section class="slide dark" id="s14">
   <div class="topbar"><b>Juice House</b><span>Roofing Pros USA</span><span>Account Review</span><span>2026</span></div>
   <div class="side"><b>Juice House</b>&nbsp; A Global Creative + Production Agency</div>
-  <div class="pg">13</div>
+  <div class="pg">14</div>
   <div class="body">
     <div style="margin-top:clamp(40px,10vh,110px);max-width:60%">
       <p class="lead" style="font-size:clamp(30px,3.6vw,60px);line-height:1.02">The pipeline is built. A larger weekly budget, better-fit leads, and faster callbacks are what turn it into revenue.</p>
