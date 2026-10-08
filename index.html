@@ -111,6 +111,29 @@
     td,thead th{padding:10px 8px}
   }
   @media print{.wrap{padding-top:24px}section{break-inside:avoid}}
+  .speed{display:grid;grid-template-columns:150px 1fr;gap:22px;align-items:start;background:var(--navy);color:#fff;padding:24px 26px;margin-top:12px}
+  .speed .big{font-family:var(--mono);font-weight:700;font-size:64px;line-height:1;color:#B9E58E}
+  .speed h3{font-family:var(--head);font-size:19px;margin-bottom:8px}
+  .speed p{font-size:14.5px;line-height:1.5;margin-bottom:10px;color:#E6EAF7}
+  .speed p:last-child{margin-bottom:0}
+  @media (max-width:640px){.speed{grid-template-columns:1fr;gap:8px}}
+  .why{display:grid;grid-template-columns:repeat(2,1fr);gap:12px;margin-top:12px}
+  .why div{border:1px solid var(--card-border);padding:16px}
+  .why h3{font-family:var(--head);font-size:15px;margin-bottom:6px}
+  .why p{font-size:13.5px;color:#3B4252;line-height:1.45}
+  .tagm{font-family:var(--mono);font-size:10px;font-weight:600;letter-spacing:.04em;text-transform:uppercase;color:var(--muted);margin-bottom:5px;text-align:center;line-height:1.2}
+  .presets{display:flex;flex-wrap:wrap;gap:8px;margin:12px 0 16px}
+  .presets button{font-family:var(--mono);font-size:12px;font-weight:600;color:var(--navy);background:#fff;border:1px solid var(--card-border);padding:7px 11px;cursor:pointer}
+  .presets button.on{background:var(--tag-bg);border-color:var(--tag-border)}
+  .presets button:focus-visible,input[type=range]:focus-visible{outline:2px solid var(--navy);outline-offset:2px}
+  .sl{display:block;font-size:14px;margin-bottom:6px}
+  input[type=range]{width:100%;accent-color:var(--navy)}
+  .out{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:18px}
+  .out>div{border:1px solid var(--card-border);padding:14px}
+  .out .l{font-weight:600;font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:#3B4252}
+  .out .v{font-family:var(--mono);font-weight:700;font-size:22px;margin-top:6px}
+  .out .v.g{color:var(--green)}
+  @media (max-width:640px){.why,.out{grid-template-columns:1fr}}
 </style>
 </head>
 <body>
@@ -124,7 +147,9 @@
 
   <div class="short">
     <div class="eyebrow">The short version</div>
-    <p>Since launch, Juice House has delivered <b class="hl">570+ unique leads</b> to Roofing Pros. <b>15 of those homeowners have signed</b> and <b>25 more are working through claims</b> with Payne Law, an estimated <b class="hl">$260K to $700K</b> in roofing work at your average job size. The first <b>$83K</b> is already invoiced, and the summer leads are moving down the same path.</p>
+    <p>Juice House leads have put <b class="hl">40 homeowners</b> under contract or into claims with Roofing Pros, an estimated <b class="hl">$260K to $700K</b> in roofing work, with the first <b>$83K</b> already invoiced.</p>
+    <p style="margin-top:14px">Right now, campaigns run when a payment clears and pause until the next one. That keeps spending in line with cash flow, but it makes lead flow uneven, and roofing jobs usually go to whoever reaches the homeowner first. During a rush, leads wait longer for a call. During a quiet stretch, homeowners who search end up calling someone else. Organic social and SEO keep working in between, but they can't carry the account alone.</p>
+    <p style="margin-top:14px">For the rest of this year and into next, we recommend <b>steady campaign funding</b> so the work can build momentum. At your own close rates, a steady 120 leads a month is worth roughly <b class="hl">$55K to $146K a month</b> in roofing work.</p>
   </div>
 
   <div class="kpis">
@@ -137,7 +162,33 @@
   </div>
 
   <section>
-    <div class="sec"><span class="num">01</span><h2>Leads Delivered &amp; Contracts, by Month</h2><span class="line"></span></div>
+    <div class="sec"><span class="num">01</span><h2>Lead Flow Follows Funding</h2><span class="line"></span></div>
+    <div class="panel">
+      <div class="legend">
+        <span><i class="sw" style="background:var(--green)"></i>Fully funded</span>
+        <span><i class="sw" style="background:#A9CF86"></i>Partly funded</span>
+        <span><i class="sw" style="background:#C9CEDB"></i>Paused or reduced</span>
+      </div>
+      <div class="months" id="flow"></div>
+      <div class="labels" id="flowlabels"></div>
+      <p class="cap">With full funding from March through May, leads climbed every month, reaching 184 in May. They dropped to 14 during the June pause, came back to 110 in July once payment resumed, and have arrived in short bursts on the reduced plan since August 20.</p>
+    </div>
+    <div class="speed">
+      <div class="big">7×</div>
+      <div>
+        <h3>Speed to lead decides who gets the job</h3>
+        <p>Businesses that reach a new lead within an hour are nearly seven times as likely to have a real conversation with the decision maker as those that wait even one hour longer. Roofing is tighter still, because homeowners often request several quotes at once and book the first contractor who calls back.</p>
+        <p>A steady daily flow lets your team call every lead within minutes. A burst creates a backlog, so leads sit while the team works through the pile. A quiet stretch is worse, because the next storm's homeowners find whoever is still advertising. It has already happened here: one qualified overnight lead booked with a competitor before the morning call.</p>
+      </div>
+    </div>
+    <div class="why">
+      <div><h3>Homeowners don't wait</h3><p>Roofing searches spike after storms. A homeowner who searches during a pause books with whoever shows up first, and that job is gone before campaigns come back on.</p></div>
+      <div><h3>Paid campaigns restart cold</h3><p>After a pause, ad platforms go back into a learning period, so the first days back cost more and convert less while the campaign finds its audience again.</p></div>
+    </div>
+  </section>
+
+  <section>
+    <div class="sec"><span class="num">02</span><h2>Leads Delivered &amp; Contracts, by Month</h2><span class="line"></span></div>
     <div class="panel">
       <div class="legend">
         <span><i class="sw" style="background:#E3E6EE"></i>Leads delivered that month</span>
@@ -152,7 +203,7 @@
   </section>
 
   <section>
-    <div class="sec"><span class="num">02</span><h2>Where the 40 Stand Today</h2><span class="line"></span></div>
+    <div class="sec"><span class="num">03</span><h2>Where the 40 Stand Today</h2><span class="line"></span></div>
     <table>
       <thead><tr><th>Stage</th><th class="r">Homeowners</th><th class="r">Invoiced</th></tr></thead>
       <tbody>
@@ -169,7 +220,27 @@
   </section>
 
   <section>
-    <div class="sec"><span class="num">03</span><h2>On the Current Plan, Since August 20</h2><span class="line"></span></div>
+    <div class="sec"><span class="num">04</span><h2>What Steady Funding Could Produce</h2><span class="line"></span></div>
+    <div class="panel">
+      <div class="hd" style="font-weight:600;font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:#3B4252">Scenario, using Roofing Pros' own results</div>
+      <div class="presets">
+        <button type="button" data-v="55">Current plan pace · 55/mo</button>
+        <button type="button" data-v="120" class="on">Steady · 120/mo</button>
+        <button type="button" data-v="180">Full program, like May · 180/mo</button>
+      </div>
+      <label class="sl" for="leads">Leads per month: <b id="lv">120</b></label>
+      <input type="range" id="leads" min="25" max="200" step="5" value="120">
+      <div class="out">
+        <div><div class="l">Contracts and claims per month</div><div class="v" id="o1"></div></div>
+        <div><div class="l">Roofing work per month</div><div class="v g" id="o2"></div></div>
+        <div><div class="l">Over 12 months</div><div class="v g" id="o3"></div></div>
+      </div>
+      <p class="cap">Low end counts signed contracts only (2.6% of leads, 15 of 573 since launch). High end adds claims with Payne Law (7.0%, 40 of 573). Each job is valued at $17,405, the average invoiced Roofing Pros job. Insurance claims usually take several months to reach invoice, so revenue trails lead flow.</p>
+    </div>
+  </section>
+
+  <section>
+    <div class="sec"><span class="num">05</span><h2>On the Current Plan, Since August 20</h2><span class="line"></span></div>
     <div class="panel list">
       <div class="hd">Lead status, Aug 20 – Oct 7</div>
       <div class="row"><span>Signed or in claims</span><span class="n">6</span></div>
@@ -182,7 +253,7 @@
   </section>
 
   <section>
-    <div class="sec"><span class="num">04</span><h2>Reach Across Social, Since February 24</h2><span class="line"></span></div>
+    <div class="sec"><span class="num">06</span><h2>Reach Across Social, Since February 24</h2><span class="line"></span></div>
     <div class="kpis" style="margin-bottom:14px">
       <div class="kpi feature"><div class="l">Views across<br>Facebook, Instagram, TikTok</div><div class="v g">220K+</div><div class="s">Feb 24 – Oct 7</div></div>
       <div class="kpi"><div class="l">People<br>reached</div><div class="v">105K+</div><div class="s">Facebook + Instagram</div></div>
@@ -200,10 +271,40 @@
     <div class="callout"><b>Organic Facebook views are up 26%</b> on the seven months before launch, and Instagram interactions nearly doubled. The top reel, "Maybe we should just stick to roofing," reached 4.4K views with 103 likes and 40 shares.</div>
   </section>
 
-  <p class="src">Source: JobNimbus, contacts created March 1 to October 7, 2026, with Juice House sources (Multi Channel, Website, Meta, Yelp, Google, Search Engine). 604 contacts, of which 31 are flagged possible duplicates; the 573 unique leads may still include some non-customer website submissions. "Signed" means a status past contract signing; Payne Law claims are counted separately. Current-plan figures exclude duplicates and non-customer website submissions. Social figures from Meta Business Suite (Feb 24 to Oct 7, compared with Jul 13, 2025 to Feb 23, 2026) and TikTok analytics (last 365 days, with activity beginning Feb 24). People reached adds Facebook viewers and Instagram reach and may include some overlap. Pipeline value is estimated at the average invoiced Roofing Pros job ($17.4K): the low end counts signed contracts only, and the high end assumes every Payne Law claim converts.</p>
+  <p class="src">Source: JobNimbus, contacts created March 1 to October 7, 2026, with Juice House sources (Multi Channel, Website, Meta, Yelp, Google, Search Engine). 604 contacts, of which 31 are flagged possible duplicates; the 573 unique leads may still include some non-customer website submissions. "Signed" means a status past contract signing; Payne Law claims are counted separately. Current-plan figures exclude duplicates and non-customer website submissions. Funding phases reflect the payment schedule: full program March through May, paused in June, partly funded in July, and the reduced plan from August 20. The speed-to-lead figure comes from Harvard Business Review's study of online sales leads ("The Short Life of Online Sales Leads," 2011). Social figures from Meta Business Suite (Feb 24 to Oct 7, compared with Jul 13, 2025 to Feb 23, 2026) and TikTok analytics (last 365 days, with activity beginning Feb 24). People reached adds Facebook viewers and Instagram reach and may include some overlap. Pipeline value is estimated at the average invoiced Roofing Pros job ($17.4K): the low end counts signed contracts only, and the high end assumes every Payne Law claim converts.</p>
 
 </div>
 
+<script>
+  const flow=[
+    {m:"Mar",leads:56,f:"full",t:"Full"},{m:"Apr",leads:124,f:"full",t:"Full"},{m:"May",leads:184,f:"full",t:"Full"},
+    {m:"Jun",leads:14,f:"off",t:"Paused"},{m:"Jul",leads:110,f:"part",t:"Partial"},{m:"Aug",leads:58,f:"off",t:"Paused / reduced"},
+    {m:"Sep",leads:51,f:"off",t:"Reduced"},{m:"Oct 1–7",leads:7,f:"off",t:"Reduced"}];
+  const fc={full:"var(--green)",part:"#A9CF86",off:"#C9CEDB"};
+  const fl=document.getElementById("flow"), fll=document.getElementById("flowlabels");
+  flow.forEach(d=>{
+    const m=document.createElement("div"); m.className="m";
+    const t=document.createElement("div"); t.className="tagm"; t.textContent=d.t;
+    const c=document.createElement("div"); c.className="col";
+    c.style.height=(d.leads/184*72)+"%"; c.style.background=fc[d.f]; c.style.borderTop="0";
+    c.innerHTML='<span style="color:'+(d.f==="full"?"#fff":"var(--navy)")+'">'+d.leads+'</span>';
+    m.appendChild(t); m.appendChild(c); fl.appendChild(m);
+    const l=document.createElement("div"); l.textContent=d.m; fll.appendChild(l);
+  });
+  const LOW=15/573, HIGH=40/573, JOB=17405;
+  const k=n=>n>=1e6?"$"+(n/1e6).toFixed(2)+"M":"$"+Math.round(n/1000)+"K";
+  const sl=document.getElementById("leads");
+  function calc(){
+    const L=+sl.value; document.getElementById("lv").textContent=L;
+    document.getElementById("o1").textContent=(L*LOW).toFixed(1)+" – "+(L*HIGH).toFixed(1);
+    document.getElementById("o2").textContent=k(L*LOW*JOB)+" – "+k(L*HIGH*JOB);
+    document.getElementById("o3").textContent=k(L*LOW*JOB*12)+" – "+k(L*HIGH*JOB*12);
+    document.querySelectorAll(".presets button").forEach(b=>b.classList.toggle("on",+b.dataset.v===L));
+  }
+  sl.addEventListener("input",calc);
+  document.querySelectorAll(".presets button").forEach(b=>b.addEventListener("click",()=>{sl.value=b.dataset.v;calc();}));
+  calc();
+</script>
 <script>
   const data = [
     { m:"Mar", leads:56,  signed:2, payne:3, paid:1 },
